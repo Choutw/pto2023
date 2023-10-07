@@ -2,7 +2,7 @@
     text-align: center;
 }
 
-#snake_box{
+#planet_box{
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
     grid-template-rows: auto auto auto auto auto auto;
@@ -12,12 +12,12 @@
     text-align: left;
 }
 
-#snake_box > div{
+#planet_box > div{
     height: 100px;
     width: 100px;
     border: 1px solid honeydew;
-    background-color: #64DD17;
-    color:darkgreen;
+    background-color: #1770dd;
+    color:rgb(100, 0, 42);
     text-align: left;
 }
 
@@ -26,43 +26,44 @@
 }
 
 #alerts{
-    color: #64DD17;
+    color: #dd1717;
 }
 
 /* snake backgrounds*/
 
 #box_35{
-    background-image: url(resources/snake35.png);
+    background-image: url(resources/asteroid.gif);
 }
 #box_19{
-    background-image: url(resources/snake19.png);
+    background-image: url(resources/asteroid.gif);
 }
 #box_14{
-    background-image: url(resources/snake14.png);
+    background-image: url(resources/asteroid.gif);
 }
 #box_29{
-    background-image: url(resources/snake29.png);
+    background-image: url(resources/asteroid.gif);
 }
 
 /*ladder backgrounds*/
 
 #box_8{
-    background-image: url(resources/ladder8.png);
+    background-image: url(resources/whole.gif);
 }
 #box_2{
-    background-image: url(resources/ladder2.png);
+    background-image: url(resources/whole.gif);
 }
 #box_21{
-    background-image: url(resources/ladder21.png);
+    background-image: url(resources/whole.gif);
 }
 #box_25{
-    background-image: url(resources/ladder25.png);
+    background-image: url(resources/whole.gif);
 }
 
 
 .side_box{
     width: 32%;
 }
+
 
 #next_player_text{
     margin-top: 50px;
@@ -71,7 +72,7 @@
 #heading{
     text-align: center;
     font-family: 'Monoton', cursive;
-    color:#64DD17 ;
+    color:#d6dd17 ;
 }
 
 #container_box{
@@ -91,10 +92,18 @@ li{
     text-align: justify;
 }
 
+#enter_button{
+    width: 60px;
+    padding: 5px;
+    background-color: rgb(0, 255, 242);
+    margin: auto;
+    border-radius: 7px;
+}
+
 #dice{
     width: 130px;
     height: 130px;
-    background-color: rgb(228, 238, 181) ;
+    background-color: rgb(238, 181, 204) ;
     border-radius: 7px;
     margin: 70px auto;
 }
@@ -102,7 +111,7 @@ li{
 #dice_button{
     width: 80px;
     padding: 20px;
-    background-color: chartreuse;
+    background-color: rgb(0, 255, 242);
     margin: auto;
     border-radius: 7px;
 }
@@ -112,8 +121,8 @@ li{
     padding: 35px;
 }
 
-#player_coin1{
-    background-color: white;
+#player_coin{
+    background-color: rgb(255, 0, 166);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -123,46 +132,3 @@ li{
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
 }
-
-#player_coin2{
-    background-color: black;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin: 10px auto;
-    text-align: center;
-    line-height: 40px;
-    font-size: 25px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -60px;
-
-  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
-  opacity: 0;
-  transition: opacity 1s;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-} 
