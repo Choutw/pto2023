@@ -1,6 +1,7 @@
 var dice_button = document.getElementById("dice_button");
 var dice_number = document.getElementById("dice_number");
 var player_name = document.getElementById("player_name");
+var show_text = document.getElementById("show_text");
 var alerts = document.getElementById("alerts");
 
 const snakePositions = [
@@ -21,36 +22,45 @@ var player_coin = document.createElement("div");
 player_coin.setAttribute("id", "player_coin");
 player_coin.innerText = "TEST";
 
-//var player1_coin = document.createElement("div");
-//player1_coin.setAttribute("id", "player_coin1");
-//player1_coin.innerText = "P1";
+function updateBudget() {
+  
+  var budgetInput = document.getElementById('budget');
+  var budgetValue = budgetInput.value;
 
-//var player2_coin = document.createElement("div");
-//player2_coin.setAttribute("id", "player_coin2");
-//player2_coin.innerText = "P2";
 
-//var current_player = true;
-//var player_counter = [0, 0, 0];
+  //document.documentElement.style.setProperty('--budget', budgetValue + 'px');
+}
 
-// Old
-var player_counter = [0, 0];
 
-// New
+// Counter for current moves
 var global_counter = 0;
+
+// Counter for all moves
+var total_counter = 0;
 
 window.addEventListener("load", start);
 
 function start() {
+  
+  //enter_button.addEventListener("click", budget_updated);
   dice_button.addEventListener("click", dice_rolled);
 }
 
+/*
+function budget_updated(){
+  // Update client's budget
+  updateBudget();
+  show_text.innerHTML = `budget: ${budgetValue}`;
+}*/
+
 function dice_rolled() {
+  
   dice_number.innerText = random();
-  //append_element(player_picker());
   player_name.innerHTML = "Player";
   append_element();
 }
 
+// Random function
 function random() {
   var random_number = Math.ceil(Math.random() * 10);
   if (random_number > 6) {
@@ -59,73 +69,28 @@ function random() {
   return random_number;
 }
 
-/*
-function player_picker() {
-  if (current_player) {
-    current_player = false;
-    player_name.innerHTML = "Player 2";
-    return 1;
-  } else {
-    current_player = true;
-    player_name.innerText = "Player 1";
-    return 2;
-  }
-}*/
-
-
-// Old
-/*function id_creator(num) {
-  return "box_" + num;
-}*/
-
-// New
+// Decide BOX number
 function id_creator(num) {
   return "box_" + num;
 }
 
-/*function coin_id_creator(num) {
-  var string = "player_coin";
-  string = string + num;
-  return string;
-}*/
 
-/*
-function counter(player) {
-  if (player_counter[player] + Number(dice_number.innerText) > 36) {
-    // do nothing 
-  } else {
-    player_counter[player] =
-      player_counter[player] + Number(dice_number.innerText);
-  }
-}*/
-
-// Do calculation
+// Do moves calculation
 function counter() {
+
   if (global_counter + Number(dice_number.innerText) > 36) {
     global_counter = 36;
   } else {
     global_counter = global_counter + Number(dice_number.innerText);
   }
-}
 
-/*
-function append_element(player) {
-   (player);
-  console.log(player_counter[player]);
-  var player_next_position = document.getElementById(
-    id_creator(player_counter[player])
-  );
-  if (player == 1) {
-    player_next_position.append(player1_coin);
-  } else {
-    player_next_position.append(player2_coin);
-  }
-  snake_or_ladder(player_counter[player], player);
-}*/
+  total_counter = total_counter + Number(dice_number.innerText);
+
+}
 
 // New
 function append_element() {
- //(player);
+
  counter();
  console.log(global_counter);
  var player_next_position = document.getElementById(
@@ -133,37 +98,15 @@ function append_element() {
  );
 
  player_next_position.append(player_coin);
+
  snake_or_ladder(global_counter);
+
 }
-
-/*
-function snake_or_ladder(counter, player) {
-  for (i = 0; i < snakePositions.length; i++) {
-    const { start, end } = snakePositions[i];
-    if (counter == start) {
-      player_counter[player] = end;
-      after_snake_or_ladder(player);
-      alerts.innerText = `Player ${player} got snake to: ${end}`;
-    }
-  }
-
-  for (j = 0; j < ladderPositions.length; j++) {
-    const { start, end } = ladderPositions[j];
-    if (counter == start) {
-      player_counter[player] = end;
-      after_snake_or_ladder(player);
-      alerts.innerText = `Player ${player} got ladder to: ${end}`;
-    }
-  }
-
-  if (counter == 36) {
-    alert(`Player ${player} won the game`);
-  }
-}*/
 
 
 // New
 function snake_or_ladder(counter) {
+
   for (i = 0; i < snakePositions.length; i++) {
     const { start, end } = snakePositions[i];
     if (counter == start) {
@@ -182,9 +125,18 @@ function snake_or_ladder(counter) {
     }
   }
 
+  //alerts.innerText = `Moves so far: ${total_counter}`;
+  next_player_text.innerText = `Moves so far: ${total_counter}`;
+  
+  /*
+  if (total_counter >= budgetValue) {
+    alert(`Tourists can not go HOME!!!`);
+  }*/
+
   if (counter >= 36) {
-    alert(`Player won the game`);
+    alert(`Tourists back to EARTH!`);
   }
+
 }
 
 function after_snake_or_ladder() {
@@ -194,5 +146,5 @@ function after_snake_or_ladder() {
   );
   
   player_next_position.append(player_coin);
-  
+
 }
