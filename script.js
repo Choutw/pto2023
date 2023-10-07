@@ -128,7 +128,7 @@ function append_element() {
  //(player);
  counter();
  popFunction();
- console.log(global_counter);
+ //console.log(global_counter);
  var player_next_position = document.getElementById(
    id_creator(global_counter)
  );
@@ -203,10 +203,12 @@ function popFunction() {
   if (global_counter >= 1) {
 
     checkTable(global_counter);
-    console.log(planet_Dt);
 
     var popup = document.getElementById("myPopup");
-    popup.innerText=JSON.stringify(planet_Dt[planet_Dt.length-1]["Act"]); 
+    popup.innerText=JSON.stringify(planet_Dt[planet_Dt.length-1]["Act"]).replace("\"", "").replace("\"", ""); 
+    console.log(global_counter);
+    console.log(popup.innerText);
+
     //popup.classList.toggle("show");
     popup.style.visibility = "visible" ;
     popup.style['-webkit-animation']= 'fadeIn 1s';
@@ -251,13 +253,15 @@ function checkTable(gl_num){
 
   d3.csv("test.csv").then(rawData =>{
 
+      change = 0;
+
       rawData.forEach(function(d){
 
         //data for map
         d.num = Number(d.num);
         d.Activity = String(d.Activity);
         d.Location=String(d.Location);
-        d.Description=Number(d.Description);
+        d.Description=String(d.Description);
 
         if(gl_num == d.num){
           planet_Dt.push({Act: d.Activity, Loc: d.Location, Desc: d.Description});
@@ -273,7 +277,6 @@ function checkTable(gl_num){
 
   if(!change){
     planet_Dt.push({Act: "Upcoming", Loc: NaN, Desc: NaN});
-    change = 0;
   }
 
 }
