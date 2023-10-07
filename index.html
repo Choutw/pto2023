@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>PTO Game 2023</title>
+        <title>Small Snake</title>
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
-        <h1 id="heading" >PTO GAME 2023</h1>
+        <h1 id="heading" >Small Snake</h1>
         <div id="container_box" >
 
             <div class="side_box" >
@@ -20,54 +20,125 @@
                 </ul>
             </div>
 
-            <div id="planet_box">
-                <div id="box_36">36
+            <div id="snake_box">
+                <div class="tooltip" id="box_36">36
                     <div id="winner" >Winner</div>
+                    <span class="tooltiptext">Tooltip text 36</span>
                 </div>
-                <div id="box_35">35</div>
-                <div id="box_34">34</div>
-                <div id="box_33">33</div>
-                <div id="box_32">32</div>
-                <div id="box_31">31</div>
-                <div id="box_25">25</div>
-                <div id="box_26">26</div>
-                <div id="box_27">27</div>
-                <div id="box_28">28</div>
-                <div id="box_29">29</div>
-                <div id="box_30">30</div>
-                <div id="box_24">24</div>
-                <div id="box_23">23</div>
-                <div id="box_22">22</div>
-                <div id="box_21">21</div>
-                <div id="box_20">20</div>
-                <div id="box_19">19</div>
-                <div id="box_13">13</div>
-                <div id="box_14">14</div>
-                <div id="box_15">15</div>
-                <div id="box_16">16</div>
-                <div id="box_17">17</div>
-                <div id="box_18">18</div>
-                <div id="box_12">12</div>
-                <div id="box_11">11</div>
-                <div id="box_10">10</div>
-                <div id="box_9">9</div>
-                <div id="box_8">8</div>
-                <div id="box_7">7</div>
-                <div id="box_1">1</div>
-                <div id="box_2">2</div>
-                <div id="box_3">3</div>
-                <div id="box_4">4</div>
-                <div id="box_5">5</div>
-                <div id="box_6">6</div>
+                <div class="tooltip" id="box_35">35
+                    <span class="tooltiptext">Tooltip text 35</span> 
+                </div>
+                <div class="tooltip" id="box_34">34
+                    <span class="tooltiptext">Tooltip text 34</span> 
+                </div>
+                <div class="tooltip" id="box_33">33
+                    <span class="tooltiptext">Tooltip text 33</span>
+                </div> 
+                <div class="tooltip" id="box_32">32
+                    <span class="tooltiptext">Tooltip text 32</span>
+                </div> 
+                <div class="tooltip" id="box_31">31
+                    <span class="tooltiptext">Tooltip text 31</span>
+                </div> 
+                <div class="tooltip" id="box_25">25
+                    <span class="tooltiptext">Tooltip text 25</span>
+                </div> 
+                <div class="tooltip" id="box_26">26
+                    <span class="tooltiptext">Tooltip text 26</span>
+                </div> 
+                <div class="tooltip" id="box_27">27
+                    <span class="tooltiptext">Tooltip text 27</span>
+                </div> 
+                <div class="tooltip" id="box_28">28
+                    <span class="tooltiptext">Tooltip text 28</span>
+                </div> 
+                <div class="tooltip" id="box_29">29
+                    <span class="tooltiptext">Tooltip text 29</span>
+                </div> 
+                <div class="tooltip" id="box_30">30
+                    <span class="tooltiptext">Tooltip text 30</span>
+                </div> 
+                <div class="tooltip" id="box_24">24
+                    <span class="tooltiptext">Tooltip text 24</span>
+                </div> 
+                <div class="tooltip" id="box_23">23
+                    <span class="tooltiptext">Tooltip text 23</span>
+                </div> 
+                <div class="tooltip" id="box_22">22
+                    <span class="tooltiptext">Tooltip text 22</span>
+                </div> 
+                <div class="tooltip" id="box_21">21
+                    <span class="tooltiptext">Tooltip text 21</span>
+                </div> 
+                <div class="tooltip" id="box_20">20
+                    <span class="tooltiptext">Tooltip text 20</span>
+                </div> 
+                <div class="tooltip" id="box_19">19
+                    <span class="tooltiptext">Tooltip text 19</span>
+                </div> 
+                <div class="tooltip" id="box_13">13
+                    <span class="tooltiptext">Tooltip text 13</span>
+                </div> 
+                <div class="tooltip" id="box_14">14
+                    <span class="tooltiptext">Tooltip text 14</span>
+                </div> 
+                <div class="tooltip" id="box_15">15
+                    <span class="tooltiptext">Tooltip text 15</span>
+                </div> 
+                <div class="tooltip" id="box_16">16
+                    <span class="tooltiptext">Tooltip text 16</span>
+                </div> 
+                <div class="tooltip" id="box_17">17
+                    <span class="tooltiptext">Tooltip text 17</span>
+                </div> 
+                <div class="tooltip" id="box_18">18
+                    <span class="tooltiptext">Tooltip text 18</span>
+                </div> 
+                <div class="tooltip" id="box_12">12
+                    <span class="tooltiptext">Tooltip text 12</span>
+                </div> 
+                <div class="tooltip" id="box_11">11
+                    <span class="tooltiptext">Tooltip text 11</span>
+                </div> 
+                <div class="tooltip" id="box_10">10
+                    <span class="tooltiptext">Tooltip text 10</span>
+                </div> 
+                <div class="tooltip" id="box_9">9
+                    <span class="tooltiptext">Tooltip text 9</span>
+                </div> 
+                <div class="tooltip" id="box_8">8
+                    <span class="tooltiptext">Tooltip text 8</span>
+                </div> 
+                <div class="tooltip" id="box_7">7
+                    <span class="tooltiptext">Tooltip text 7</span>
+                </div> 
+                <div class="tooltip" id="box_1">1
+                    <span class="tooltiptext">Tooltip text 1</span>
+                </div> 
+                <div class="tooltip" id="box_2">2
+                    <span class="tooltiptext">Tooltip text 2</span>
+                </div> 
+                <div class="tooltip" id="box_3">3
+                    <span class="tooltiptext">Tooltip text 3</span>
+                </div> 
+                <div class="tooltip" id="box_4">4
+                    <span class="tooltiptext">Tooltip text 4</span>
+                </div> 
+                <div class="tooltip" id="box_5">5
+                    <span class="tooltiptext">Tooltip text 5</span>
+                </div> 
+                <div class="tooltip" id="box_6">6
+                    <span class="tooltiptext">Tooltip text 6</span>
+                </div> 
             </div>
 
             <div class="side_box">
                 <div id="dice" >
                     <h1 id="dice_number" >5</h1>
                 </div>
-                <div id="dice_button">Click to Roll the Dice</div>
+                <div id="dice_button">Roll Dice</div>
                 <h1 id="next_player_text" >Next player to roll dice:</h1>
-                <h1 id="player_name" >Player</h1>
+                <h1 id="player_name" >Player 1</h1>
                 <h1 id="alerts"></h1>
             </div>
 
@@ -76,6 +147,7 @@
         <script type="text/javascript" src="script.js" ></script>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Roboto&display=swap');
-          </style>
+       
+	    </style>
     </body>
 </html>
