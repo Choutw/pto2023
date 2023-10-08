@@ -17,6 +17,9 @@ var numberDisplay = document.getElementById('numberDisplay');
 var budget;
 var username;
 
+/* Flag to control hidden button */ 
+var complete_flag = true;
+
 const snakePositions = [
   { start: 14, end: 3 },
   { start: 19, end: 5 },
@@ -44,7 +47,11 @@ var total_counter = 0;
 
 window.addEventListener("load", start);
 
-alert(`Welcome`);
+alert(`Welcome to PTO Travel!\n\
+where we will take you on a captivating journey through the terrestrial planets of the solar system and several of their enchanting satellites.\n\
+Each of these celestial bodies possesses its own unique allure, and while you may not yet be certain which destinations to explore in-depth, this game will introduce you to their distinctive features.\n\
+Moreover, it will calculate the associated costs and determine the feasibility of such journeys based on your budget.\n\
+Let us embark on a mysterious and exhilarating space voyage together!\n`);
 
 function start() {
 
@@ -87,8 +94,21 @@ function id_creator(num) {
   return "box_" + num;
 }
 
+/* Game rules */ 
 function showalert(){
-  alert("1. Each player starts at 0.\n2. Pawns move on the basis of the dice rolled.\n3. If you reach a 'wormhole' box you go up to the number mentioned.\n4. If you reach a '' you go down to the number mentioned.\n5. The first person to reach finish wins the game\n");
+  alert("1. Please enter your name and budget, then press the “Confirm” button.\n\
+  2. Once your name and budget are confirmed, click on “Roll the Dice” to begin your journey.\n\
+  The rolled number will be a random integer between 1 and 6, representing the number of steps you advance.\n\
+  Each step consumes 1 budget point until you either reach the destination with the remaining budget or just use up your budget, signifying a successful completion of the trip back to Earth.\n\
+  3. Various events will occur on the map:\n\
+  \n\
+  Regular Sightseeing Event: Visit specific landmarks on different planets, each with intriguing stories to discover.\n\
+  In-Transit Event: Continue your journey through space with no special occurrences.\n\
+  Wormhole Event: Enter a wormhole to travel to a more distant location.\n\
+  Asteroid Impact Event: Impacted by asteroid, causing you to move back a few steps in your journey.\n\
+  \n\
+  4. If your budget is depleted before reaching the destination, the trip will be deemed a failure.\n\
+  5. Upon completing the journey, click “Check Result” to view the visited landmarks and their descriptions, serving as a reference for your travels.\n");
 }
 
 // Do moves calculation
