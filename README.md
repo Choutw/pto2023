@@ -1,6 +1,6 @@
 # Welcome to PTO!
 
-This project is a web-based mini-game inspired by the concept of the game "Snakes and Ladders". It conveys educational information related to the solar system and eventually generates a random travel route for the users.
+This project is a web-based single-player game inspired by the concept of "Snakes and Ladders". It conveys educational information related to the planets of solar system and eventually generates a random travel route for the users.
 
 # DEMO
 
