@@ -158,15 +158,15 @@
                 <div id="dice" >
                     <h1 id="dice_number" ></h1>
                 </div>
-                <div id="dice_button">Click to Roll the Dice</div>
+                <div id="dice_button" class="btn">Click to Roll the Dice</div>
                 <h1 id="show_budget_text" ></h1>
                 <h1 id="player_name" ></h1>
                 <h1 id="alerts"></h1>
 
-                <button id = "result_button" type="button">
-                    check result</button>
-
-                <input type="button" value="Reload Page" onClick="window.location.reload(true)" hidden>
+                <button onClick="show_result()" id = "result_button" type="button" class="btn">
+                    Check the result</button>
+                
+                <input type="button" value="Reload Page" class="btn" onClick="window.location.reload(true)" hidden>
             </div>
 
             <div class="bg"></div>

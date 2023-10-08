@@ -139,6 +139,14 @@ function snake_or_ladder(counter) {
     console.log(getObject_Act);
     console.log(getObject_Num);
 
+    /* Enable the result button*/
+    var result_show = document.getElementById('result_button');
+    console.log(result_show.style);
+    
+    if(result_show.style.display==''){
+      result_show.style.display='inline';
+    }
+
     /* Show message */
     alert(`Tourists can not go HOME!!!`);
   }
@@ -149,6 +157,14 @@ function snake_or_ladder(counter) {
     /* For debug */
     console.log(getObject_Act);
     console.log(getObject_Num);
+
+    /* Enable the result button*/
+    var result_show = document.getElementById('result_button');
+    console.log(result_show.style);
+    
+    if(result_show.style.display==''){
+      result_show.style.display='inline';
+    }
 
     /* Show message */
     alert(`Tourists back to EARTH!`);
