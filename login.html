@@ -22,7 +22,7 @@
 
                 <!-- Show the tutorial   -->
                 <h1>First time?</h1>
-                <input id="tutorial_button" onclick="showalert()" value="See Instructions!" />    
+                <input id="tutorial_button" onclick="showalert()" value="See Instructions!" class="btn"/>    
 
             </div>
 
@@ -34,7 +34,7 @@
                     <div>
                             <label for="textInput">Enter your name:</label>
                             <input type="text" id="textInput" placeholder="Enter your name!">
-                            <button id="readName">ENTER</button>
+                            <button id="readName" class="btn">ENTER</button>
                     </div>
                     
                     <div id="result">Your name is: <span id="nameDisplay">-</span></div>
@@ -43,7 +43,7 @@
 
                             <label for="numberInput">Enter your budge:</label>
                             <input type="number" id="numberInput" placeholder="Enter your budget!">
-                            <button id="readBudget">ENTER</button>
+                            <button id="readBudget" class="btn">ENTER</button>
 
                     </div>
                     <div id="result">Your budget is: <span id="numberDisplay">-</span></div>
@@ -52,7 +52,7 @@
 
                         <!--<button onclick="location.href='index.html?textInput=textInput.value&numberInput=numberInput.value'" type="button">
                             GO!</button>-->
-                        <button onclick="goToPage()" type="button">GO!</button>
+                        <button onclick="goToPage()" type="button" class="btn">GO!</button>
 
                 <h1><h1>
                     
@@ -67,6 +67,9 @@
         </div>
 
         <script type="text/javascript" src="welcome.js" ></script>
+        <style>
+             @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Roboto&display=swap');
+        </style>
 
     </body>
 </html>
