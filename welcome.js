@@ -31,6 +31,18 @@ function start() {
 
     readName.addEventListener('click', name_updated);
     readBudget.addEventListener('click', budget_updated);
+
+    // Execute a function when the user presses a key on the keyboard
+     document.getElementById("container_box").addEventListener("keypress", function(event) {
+    // If the user presses the "Enter" key on the keyboard
+    if (event.key === "Enter") {
+      // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("readName").click();
+        document.getElementById("readBudget").click();
+        }
+    });
   
 }
   

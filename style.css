@@ -294,7 +294,8 @@ li{
     height: 265px;
     background-color: #555;
     color: #fff;
-    text-align: center;
+    text-align: left;
+    font-size: 18px;
     border-radius: 6px;
     padding: 8px 0;
     position: absolute;

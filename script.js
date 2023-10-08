@@ -3,12 +3,6 @@ var dice_number = document.getElementById("dice_number");
 var player_name = document.getElementById("player_name");
 var alerts = document.getElementById("alerts");
 
-/* For name button */
-//var nameDisplay = document.getElementById('nameDisplay');
-
-/* For budget button */
-//var numberDisplay = document.getElementById('numberDisplay');
-
 /* */
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('textInput');
@@ -52,11 +46,11 @@ function start() {
   player_coin.innerText = username;
   
   dice_button.addEventListener("click", dice_rolled);
+  result_button.addEventListener("click", show_result);
 
 }
 
 function name_updated(){
-
   player_coin.innerText = username;
 }
 
@@ -67,7 +61,13 @@ function dice_rolled() {
   append_element();
 }
 
-// Random function
+/* Pass the array */
+function show_result(){
+  var arrayAsJSON = JSON.stringify(getObject_Num);
+  window.location.href = 'list.html?array=' + encodeURIComponent(arrayAsJSON);
+}
+
+/* Random function */
 function random() {
   var random_number = Math.ceil(Math.random() * 10);
   if (random_number > 6) {
@@ -197,16 +197,22 @@ function popFunction() {
     checkTable(global_counter);
 
     var popup = document.getElementById("myPopup");
-    popup.innerText = "Depart from: " + JSON.stringify(getObject_Num[getObject_Num.length-2]) + ". " + JSON.stringify(getObject_Act[getObject_Act.length-1]); 
+    popup.innerText = "Depart from: " + JSON.stringify(getObject_Num[getObject_Num.length-2]) + ". " + JSON.stringify(getObject_Act[getObject_Act.length-1])
+    + "\n\n" + JSON.stringify(getObject_Desc[getObject_Desc.length-1].replaceAll("\n", "; ").replaceAll("\r", "")).replaceAll("; ", "\n"); 
     console.log(global_counter);
     console.log(popup.innerText);
 
-    //popup.classList.toggle("show");
     popup.style.visibility = "visible" ;
     popup.style['-webkit-animation']= 'fadeIn 1s';
     popup.style['animation']= 'fadeIn 1s';
 
-    document.getElementById("myImg").src="https://www.nasa.gov/wp-content/uploads/2017/03/psychelongshot0718b_1041x805.jpg";
+    img_path = "./resources/" + String(JSON.stringify(getObject_Src[getObject_Src.length-1]).replaceAll("\"", ""));
+    //console.log(img_path);
+    if(getObject_Src[getObject_Src.length-1] != ""){
+      document.getElementById("myImg").src=img_path;
+    }else{
+      document.getElementById("myImg").src="https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo.svg";
+    }
     getModal();
 
   //}
@@ -240,6 +246,8 @@ function getModal() {
 
 var getObject_Act = [];
 var getObject_Num = [];
+var getObject_Src = [];
+var getObject_Desc = [];
 let change = false;
 
 function checkTable(gl_num){
@@ -247,7 +255,7 @@ function checkTable(gl_num){
   getObject_Num.push(gl_num);
 
   //Read csv
-  d3.csv("test.csv").then(test_rawData =>{
+  d3.csv("travel_data.csv").then(test_rawData =>{
 
       change = false;
 
@@ -259,7 +267,7 @@ function checkTable(gl_num){
             "Act":String(d['Activity']),
             "Loc":String(d['Location']),
             "Desc":String(d['Description']),
-            "URL":String(d['Sources Link'])
+            "Src":String(d['Image_path'])
 
           };
 
@@ -268,12 +276,15 @@ function checkTable(gl_num){
       for (var i = 0; i < test.length; i++){
         if (gl_num == test[i]["Num"]){
           getObject_Act.push(test[i]["Act"]);
+          getObject_Src.push(test[i]["Src"]);
+          getObject_Desc.push(test[i]["Desc"]);
           change = true;
         }
       }
 
       if(!change){
         getObject_Act.push("Upcoming");
+        getObject_Desc.push("Upcoming");
       }
 
       console.log(test["Num"]);
