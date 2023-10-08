@@ -64,7 +64,11 @@ function dice_rolled() {
 /* Pass the array */
 function show_result(){
   var arrayAsJSON = JSON.stringify(getObject_Num);
-  window.location.href = 'list.html?array=' + encodeURIComponent(arrayAsJSON);
+  var arrayAsJSON2 = JSON.stringify(getObject_Src);
+  var arrayAsJSON3 = JSON.stringify(getObject_Act);
+  //var arrayAsJSON4 = JSON.stringify(getObject_Desc);
+  window.location.href = 'list.html?array=' + encodeURIComponent(arrayAsJSON) + '&array2=' + encodeURIComponent(arrayAsJSON2) 
+  + '&array3=' + encodeURIComponent(arrayAsJSON3);
 }
 
 /* Random function */

@@ -5,57 +5,65 @@ This itinerary is also provided to you as a reference for your future real space
 
 var urlParams = new URLSearchParams(window.location.search);
 var arrayAsJSON = urlParams.get('array');
-var retrievedArray = JSON.parse(decodeURIComponent(arrayAsJSON));
+var retrievedArray_num = JSON.parse(decodeURIComponent(arrayAsJSON));
+var arrayAsJSON2 = urlParams.get('array2');
+var retrievedArray_src = JSON.parse(decodeURIComponent(arrayAsJSON2));
+var arrayAsJSON3 = urlParams.get('array3');
+var retrievedArray_act = JSON.parse(decodeURIComponent(arrayAsJSON3));
 
-console.log(retrievedArray);
+console.log(retrievedArray_num);
+console.log(retrievedArray_src);
+console.log(retrievedArray_act);
 
-fetch('travel_data.csv')
-    .then(response => response.text())
-    .then(data => {
-        const rows = data.split('\n');
-        const headers = rows[0].split(',');
-        const parsedData = [];
+function createTable(tableData) {
+  var divide = document.createElement('div');
+  divide.className = 'tbl-content';
+  var table = document.createElement('table');
+  table.cellPadding = "0";
+  table.cellSpacing = "0";
+  table.border = "0";
+  var tableBody = document.createElement('tbody');
 
-        for (let i = 1; i < rows.length; i++) {
-            const obj = {};
-            const currentRow = rows[i].split(',');
-
-            for (let j = 0; j < headers.length; j++) {
-                obj[headers[j]] = currentRow[j];
-            }
-
-            parsedData.push(obj);
-        }
-
-        console.log(parsedData); // Parsed data
-    });
-
-//
-var tbody = document.querySelector('#data-table tbody');
-
-for (var i = 0; i < retrievedArray.length; i++) {
-    var rowIndex = retrievedArray[i]; // get index
-
-    // Create new line
+  tableData.forEach(function(rowData) {
     var row = document.createElement('tr');
+/*
+    rowData.forEach(function(cellData) {
+      var cell = document.createElement('td');
+      cell.appendChild(document.createTextNode(cellData));
+      row.appendChild(cell);
+    });
+*/
 
-    // 
-    var rowData = parsedData[rowIndex];
+    var cell = document.createElement('td');
+    cell.appendChild(document.createTextNode(rowData[0]));
+    row.appendChild(cell);
 
-    // 
-    for (var key in rowData) {
-        if (rowData.hasOwnProperty(key)) {
-            var cell = document.createElement('td');
-            cell.textContent = rowData[key]; 
-            row.appendChild(cell); 
-        }
-    }
+    var img = document.createElement('img');
+    img.src = "./resources/" + rowData[1];
+    img.style.width = '400px';
+    row.appendChild(img);
 
-    tbody.appendChild(row); 
+    var cell2 = document.createElement('td');
+    cell2.appendChild(document.createTextNode(rowData[2]));
+    row.appendChild(cell2);
+
+    tableBody.appendChild(row);
+  });
+
+  table.appendChild(tableBody);
+  document.body.appendChild(table);
 }
 
+var route_table = [];
+for (var i = 0; i < retrievedArray_num.length; i++){
+    var temp = [];
+    
+    temp.push(retrievedArray_num[i]);
+    temp.push(retrievedArray_src[i]);
+    temp.push(retrievedArray_act[i]);
 
+    route_table.push(temp);
+}
 
-
-
-
+console.log(route_table);
+createTable(route_table);
