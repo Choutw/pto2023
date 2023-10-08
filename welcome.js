@@ -13,7 +13,7 @@ var username;
 
 /* Default hint */
 
-alert(`Welcome to PTO Travel!\n\
+alert(`Welcome aboard!\n\
 where we will take you on a captivating journey through the terrestrial planets of the solar system and several of their enchanting satellites.\n\
 Each of these celestial bodies possesses its own unique allure, and while you may not yet be certain which destinations to explore in-depth, this game will introduce you to their distinctive features.\n\
 Moreover, it will calculate the associated costs and determine the feasibility of such journeys based on your budget.\n\
