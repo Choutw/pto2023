@@ -67,3 +67,11 @@ for (var i = 0; i < retrievedArray_num.length; i++){
 
 console.log(route_table);
 createTable(route_table);
+
+function BackToHome() {
+  
+  const url = `login.html`;
+  
+  window.location.reload(true);
+  window.location.href = url;
+}

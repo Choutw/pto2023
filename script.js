@@ -9,7 +9,7 @@ const username = urlParams.get('textInput');
 const budget = parseInt(urlParams.get('numberInput'));
 
 /* Flag to control hidden button */ 
-var complete_flag = true;
+var complete_flag = false;
 
 const snakePositions = [
   { start: 14, end: 3 },
@@ -48,6 +48,14 @@ function start() {
   dice_button.addEventListener("click", dice_rolled);
   result_button.addEventListener("click", show_result);
 
+}
+
+function BackToHome() {
+  
+  const url = `login.html`;
+  
+  window.location.reload(true);
+  window.location.href = url;
 }
 
 function name_updated(){
@@ -90,6 +98,7 @@ function showalert(){
   alert("1. Click on “Roll the Dice” to begin your journey.\n\
   The rolled number will be a random integer between 1 and 6, representing the number of steps you advance.\n\
   Each step consumes 1 budget point until you either reach the destination with the remaining budget or just use up your budget, signifying a successful completion of the trip back to Earth.\n\
+  \n\
   2. Various events will occur on the map:\n\
   \n\
   Regular Sightseeing Event: Visit specific landmarks on different planets, each with intriguing stories to discover.\n\
@@ -98,6 +107,7 @@ function showalert(){
   Asteroid Impact Event: Impacted by asteroid, causing you to move back a few steps in your journey.\n\
   \n\
   3. If your budget is depleted before reaching the destination, the trip will be deemed a failure.\n\
+  \n\
   4. Upon completing the journey, click “Check Result” to view the visited landmarks and their descriptions, serving as a reference for your travels.\n");
 }
 
@@ -136,7 +146,7 @@ function append_element() {
 
 function snake_or_ladder(counter) {
 
-  if (total_counter > budget) {
+  if (total_counter > budget && complete_flag == false) {
 
     /* For debug */
     console.log(getObject_Act);
@@ -150,12 +160,14 @@ function snake_or_ladder(counter) {
       result_show.style.display='inline';
     }
 
+    complete_flag = true;
+
     /* Show message */
-    alert(`Tourists can not go HOME!!!`);
+    alert(`Sorry, your budget is over:((.\n\nFind the orange button to check the travling list^_^`);
   }
 
   /* Also consider the untype budget */
-  if ((counter >= 36)&&((budget > 0)||(budget == null))){
+  if (((counter >= 36)&&(complete_flag==false))&&((budget > 0)||(budget == null))){
     
     /* For debug */
     console.log(getObject_Act);
@@ -169,8 +181,10 @@ function snake_or_ladder(counter) {
       result_show.style.display='inline';
     }
 
+    complete_flag = true;
+
     /* Show message */
-    alert(`Tourists back to EARTH!`);
+    alert(`Welcome back to EARTH!\n\nFind the orange button to check the travling list@V@`);
   }
 
   for (i = 0; i < snakePositions.length; i++) {
