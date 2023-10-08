@@ -54,9 +54,9 @@
 #box_9{
     background-image: url(resources/Planet/venus.png);
 }
-/* #box_10{
-    background-image: url(resources/astronaut.png);
-} */
+#box_10{
+    background-image: url(resources/Venus/lava_on_venus.webp);
+} 
 #box_11{
     background-image: url(resources/Venus/Maxwell.jpeg);
 }
