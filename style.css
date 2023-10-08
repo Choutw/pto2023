@@ -268,7 +268,9 @@ li{
        can be anything you want */
     
   .popup {
-    position: absolute;
+
+    /* Updated 10/8 14:57 */
+    position: fixed;
     display: inline-block;
     cursor: pointer;
     -webkit-user-select: none;
@@ -280,8 +282,8 @@ li{
   /* The actual popup */
   .popup .popuptext {
     visibility: hidden;
-    width: 480px;
-    height: 465px;
+    width: 600px;
+    height: 265px;
     background-color: #555;
     color: #fff;
     text-align: center;

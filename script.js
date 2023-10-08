@@ -161,7 +161,7 @@ function snake_or_ladder(counter) {
     if (counter == start) {
       global_counter = end;
       after_snake_or_ladder();
-      alerts.innerText = `Go to ${end} by wormwhole`;
+      alerts.innerText = `Go to ${end} by wormhole`;
     }
   }
 
