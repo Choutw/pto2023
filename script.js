@@ -21,20 +21,6 @@ var player_coin = document.createElement("div");
 player_coin.setAttribute("id", "player_coin");
 player_coin.innerText = "TEST";
 
-//var player1_coin = document.createElement("div");
-//player1_coin.setAttribute("id", "player_coin1");
-//player1_coin.innerText = "P1";
-
-//var player2_coin = document.createElement("div");
-//player2_coin.setAttribute("id", "player_coin2");
-//player2_coin.innerText = "P2";
-
-//var current_player = true;
-//var player_counter = [0, 0, 0];
-
-// Old
-var player_counter = [0, 0];
-
 // New
 var global_counter = 0;
 
@@ -59,45 +45,10 @@ function random() {
   return random_number;
 }
 
-/*
-function player_picker() {
-  if (current_player) {
-    current_player = false;
-    player_name.innerHTML = "Player 2";
-    return 1;
-  } else {
-    current_player = true;
-    player_name.innerText = "Player 1";
-    return 2;
-  }
-}*/
-
-
-// Old
-/*function id_creator(num) {
-  return "box_" + num;
-}*/
-
 // New
 function id_creator(num) {
   return "box_" + num;
 }
-
-/*function coin_id_creator(num) {
-  var string = "player_coin";
-  string = string + num;
-  return string;
-}*/
-
-/*
-function counter(player) {
-  if (player_counter[player] + Number(dice_number.innerText) > 36) {
-    // do nothing 
-  } else {
-    player_counter[player] =
-      player_counter[player] + Number(dice_number.innerText);
-  }
-}*/
 
 // Do calculation
 function counter() {
@@ -107,21 +58,6 @@ function counter() {
     global_counter = global_counter + Number(dice_number.innerText);
   }
 }
-
-/*
-function append_element(player) {
-   (player);
-  console.log(player_counter[player]);
-  var player_next_position = document.getElementById(
-    id_creator(player_counter[player])
-  );
-  if (player == 1) {
-    player_next_position.append(player1_coin);
-  } else {
-    player_next_position.append(player2_coin);
-  }
-  snake_or_ladder(player_counter[player], player);
-}*/
 
 // New
 function append_element() {
@@ -136,32 +72,6 @@ function append_element() {
  player_next_position.append(player_coin);
  snake_or_ladder(global_counter);
 }
-
-/*
-function snake_or_ladder(counter, player) {
-  for (i = 0; i < snakePositions.length; i++) {
-    const { start, end } = snakePositions[i];
-    if (counter == start) {
-      player_counter[player] = end;
-      after_snake_or_ladder(player);
-      alerts.innerText = `Player ${player} got snake to: ${end}`;
-    }
-  }
-
-  for (j = 0; j < ladderPositions.length; j++) {
-    const { start, end } = ladderPositions[j];
-    if (counter == start) {
-      player_counter[player] = end;
-      after_snake_or_ladder(player);
-      alerts.innerText = `Player ${player} got ladder to: ${end}`;
-    }
-  }
-
-  if (counter == 36) {
-    alert(`Player ${player} won the game`);
-  }
-}*/
-
 
 // New
 function snake_or_ladder(counter) {
@@ -184,6 +94,8 @@ function snake_or_ladder(counter) {
   }
 
   if (counter >= 36) {
+    console.log(getObject_Act);
+    console.log(getObject_Num);
     alert(`Player won the game`);
   }
 }
@@ -200,12 +112,12 @@ function after_snake_or_ladder() {
 
 function popFunction() {
 
-  if (global_counter >= 1) {
+  //if (global_counter >= 1) {
 
     checkTable(global_counter);
 
     var popup = document.getElementById("myPopup");
-    popup.innerText=JSON.stringify(planet_Dt[planet_Dt.length-1]["Act"]).replace("\"", "").replace("\"", ""); 
+    popup.innerText = "Depart from: " + JSON.stringify(getObject_Num[getObject_Num.length-2]) + ". " + JSON.stringify(getObject_Act[getObject_Act.length-1]); 
     console.log(global_counter);
     console.log(popup.innerText);
 
@@ -217,7 +129,7 @@ function popFunction() {
     document.getElementById("myImg").src="https://www.nasa.gov/wp-content/uploads/2017/03/psychelongshot0718b_1041x805.jpg";
     getModal();
 
-  }
+  //}
 }
 
 function getModal() {
@@ -246,37 +158,47 @@ function getModal() {
 }
 
 
-var planet_Dt = [];
-var change = 0;
+var getObject_Act = [];
+var getObject_Num = [];
+let change = false;
 
 function checkTable(gl_num){
 
-  d3.csv("test.csv").then(rawData =>{
+  getObject_Num.push(gl_num);
 
-      change = 0;
+  //Read csv
+  d3.csv("test.csv").then(test_rawData =>{
 
-      rawData.forEach(function(d){
+      change = false;
 
-        //data for map
-        d.num = Number(d.num);
-        d.Activity = String(d.Activity);
-        d.Location=String(d.Location);
-        d.Description=String(d.Description);
+      let test = test_rawData.map(d=>{
 
-        if(gl_num == d.num){
-          planet_Dt.push({Act: d.Activity, Loc: d.Location, Desc: d.Description});
-          change = 1;
-        }
+          return {
+          
+            "Num":Number(d['num']),
+            "Act":String(d['Activity']),
+            "Loc":String(d['Location']),
+            "Desc":String(d['Description']),
+            "URL":String(d['Sources Link'])
+
+          };
+
       });
 
-    }//end of csv load.
+      for (var i = 0; i < test.length; i++){
+        if (gl_num == test[i]["Num"]){
+          getObject_Act.push(test[i]["Act"]);
+          change = true;
+        }
+      }
 
-  ).catch(function(error){
-        console.log(error);
+      if(!change){
+        getObject_Act.push("Upcoming");
+      }
+
+      console.log(test["Num"]);
+    }).catch(function(error){
+    console.log(error);
   });
-
-  if(!change){
-    planet_Dt.push({Act: "Upcoming", Loc: NaN, Desc: NaN});
-  }
 
 }
