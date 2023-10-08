@@ -78,6 +78,9 @@
 #box_17{
     background-image: url(resources/Earth/Armstrong.webp);
 }
+#box_18{
+    background-image: url(resources/space.jpeg);
+}
 #box_19{
     background-image: url(resources/asteroid.gif);
 }
@@ -87,11 +90,23 @@
 #box_21{
     background-image: url(resources/whole.gif);
 }
+#box_22{
+    background-image: url(resources/space.jpeg);
+}
+#box_23{
+    background-image: url(resources/space.jpeg);
+}
+#box_24{
+    background-image: url(resources/space.jpeg);
+}
 #box_25{
     background-image: url(resources/whole.gif);
 }
 #box_26{
     background-image: url(resources/Planet/mars.png);
+}
+#box_27{
+    background-image: url(resources/Mars/Rover_self.jpg);
 }
 #box_28{
     background-image: url(resources/Mars/phobos.png);
@@ -104,6 +119,12 @@
 }
 #box_31{
     background-image: url(resources/Mars/Olympus_Mons.jpg);
+}
+#box_32{
+    background-image: url(resources/Mars/Saturn.jpg);
+}
+#box_33{
+    background-image: url(resources/space.jpeg);
 }
 #box_34{
     background-image: url(resources/Mars/Rover's_Backshell_Seen_From_the_Air.png);
