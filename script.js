@@ -83,19 +83,18 @@ function id_creator(num) {
 
 /* Game rules */ 
 function showalert(){
-  alert("1. Please enter your name and budget, then press the “Confirm” button.\n\
-  2. Once your name and budget are confirmed, click on “Roll the Dice” to begin your journey.\n\
+  alert("1. Click on “Roll the Dice” to begin your journey.\n\
   The rolled number will be a random integer between 1 and 6, representing the number of steps you advance.\n\
   Each step consumes 1 budget point until you either reach the destination with the remaining budget or just use up your budget, signifying a successful completion of the trip back to Earth.\n\
-  3. Various events will occur on the map:\n\
+  2. Various events will occur on the map:\n\
   \n\
   Regular Sightseeing Event: Visit specific landmarks on different planets, each with intriguing stories to discover.\n\
   In-Transit Event: Continue your journey through space with no special occurrences.\n\
   Wormhole Event: Enter a wormhole to travel to a more distant location.\n\
   Asteroid Impact Event: Impacted by asteroid, causing you to move back a few steps in your journey.\n\
   \n\
-  4. If your budget is depleted before reaching the destination, the trip will be deemed a failure.\n\
-  5. Upon completing the journey, click “Check Result” to view the visited landmarks and their descriptions, serving as a reference for your travels.\n");
+  3. If your budget is depleted before reaching the destination, the trip will be deemed a failure.\n\
+  4. Upon completing the journey, click “Check Result” to view the visited landmarks and their descriptions, serving as a reference for your travels.\n");
 }
 
 // Do moves calculation
